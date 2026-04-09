@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedí tu sesión — Vincularmente</title>
+  <meta name="description" content="Dejá tus datos y contame qué te pasa. Te respondo en menos de 24 horas. Sesiones online por videollamada.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mankuy.github.io/vincularmente-site/contacto.html">
+  <meta property="og:title" content="Pedí tu sesión — Vincularmente">
+  <meta property="og:description" content="Dejá tus datos y contame qué te pasa. Te respondo en menos de 24 horas.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mankuy.github.io/vincularmente-site/contacto.html">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <style>
+    .form-page { max-width: 600px; margin: 0 auto; padding: 2rem 1rem; }
+    .form-page h1 { color: #fff; font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .form-page .subtitle { color: #a0a0a0; margin-bottom: 2rem; font-size: 1rem; }
+    .form-page label { color: #e0e0e0; display: block; margin-bottom: 0.3rem; font-size: 0.95rem; font-weight: 500; }
+    .form-page input, .form-page textarea, .form-page select {
+      width: 100%; padding: 0.75rem 1rem; margin-bottom: 1.2rem;
+      background: #1a1a2e; border: 1px solid #333; border-radius: 8px;
+      color: #fff; font-size: 1rem; font-family: inherit;
+      box-sizing: border-box;
+    }
+    .form-page input:focus, .form-page textarea:focus, .form-page select:focus {
+      outline: none; border-color: #a78bfa;
+    }
+    .form-page textarea { min-height: 120px; resize: vertical; }
+    .form-page select option { background: #1a1a2e; color: #fff; }
+    .form-page .btn-submit {
+      background: #a78bfa; color: #fff; border: none; padding: 0.85rem 2rem;
+      border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;
+      width: 100%; transition: background 0.2s;
+    }
+    .form-page .btn-submit:hover { background: #8b6fe0; }
+    .form-page .privacy { color: #666; font-size: 0.8rem; margin-top: 1rem; text-align: center; }
+    .form-page .note { background: #1a1a2e; border-left: 3px solid #a78bfa; padding: 1rem; margin-bottom: 2rem; border-radius: 0 8px 8px 0; color: #d0d0d0; font-size: 0.95rem; }
+    .success-message { display: none; background: #1a2e1a; border: 1px solid #4ade80; border-radius: 8px; padding: 2rem; text-align: center; color: #4ade80; }
+    .success-message h2 { margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a href="/" class="logo">vincular<span>mente</span></a>
+    <nav>
+      <a href="/">Artículos</a>
+      <a href="https://go.hotmart.com/Q105244008P" target="_blank">Ebook</a>
+      <a href="/contacto.html">Sesiones</a>
+    </nav>
+  </div>
+</header>
+
+<section class="form-page">
+  <h1>Pedí tu sesión</h1>
+  <p class="subtitle">Dejá tus datos y contame qué te pasa. Te respondo en menos de 24 horas.</p>
+
+  <div class="note">
+    Atiendo por videollamada. La primera sesión es para conocernos y ver si lo que te pasa tiene que ver con lo que trabajo: vínculos, autoestima, patrones que se repiten. No es obligación agendar después.
+  </div>
+
+  <!-- 
+    ═══════════════════════════════════════════════
+    FORMULARIO - Formspree
+    Para activar: reemplazar YOUR_FORM_ID abajo.
+    1. Ir a formspree.io
+    2. Registrarse con facundo.galetta@gmail.com
+    3. Crear formulario nuevo
+    4. Copiar el form ID (algo como "xrgvkpqq")
+    5. Reemplazar YOUR_FORM_ID en la URL de action
+    ═══════════════════════════════════════════════
+  -->
+  <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <label for="nombre">Nombre *</label>
+    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+
+    <label for="edad">Edad *</label>
+    <input type="number" id="edad" name="edad" required min="16" max="99" placeholder="Ej: 28">
+
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+
+    <label for="como_conociste">¿Cómo llegaste hasta acá? *</label>
+    <select id="como_conociste" name="como_conociste" required>
+      <option value="" disabled selected>Elegí una opción</option>
+      <option value="google">Búsqueda en Google</option>
+      <option value="x">Twitter/X</option>
+      <option value="tiktok">TikTok/Reels</option>
+      <option value="instagram">Instagram</option>
+      <option value="recomendacion">Me lo recomendó alguien</option>
+      <option value="ebook">Compré el ebook</option>
+      <option value="otro">Otro</option>
+    </select>
+
+    <label for="motivo">¿Qué te pasa? *</label>
+    <textarea id="motivo" name="motivo" required placeholder="Contame en tus palabras qué te trae acá. No tiene que ser perfecto, tiene que ser honesto."></textarea>
+
+    <label for="disponibilidad">¿Cuándo podrías atenderte? *</label>
+    <select id="disponibilidad" name="disponibilidad" required>
+      <option value="" disabled selected>Elegí una opción</option>
+      <option value="lo-antes-posible">Lo antes posible</option>
+      <option value="esta-semana">Esta semana</option>
+      <option value="este-mes">Este mes</option>
+      <option value="solo-consultando">Solo estoy consultando</option>
+    </select>
+
+    <input type="hidden" name="_subject" value="Nueva consulta desde vincularmente.com">
+    <input type="hidden" name="_language" value="es">
+
+    <button type="submit" class="btn-submit">Enviar consulta</button>
+  </form>
+
+  <div class="success-message" id="successMessage">
+    <h2>✅ Consulta enviada</h2>
+    <p>Te respondo en menos de 24 horas. Revisá tu email por si te llegó algo.</p>
+  </div>
+
+  <p class="privacy">Tus datos son privados. No los comparto con nadie. Solo los uso para responder tu consulta.</p>
+</section>
+
+<footer>
+  <div class="container">
+    <p>vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a> · <a href="/contacto.html">Contacto</a></p>
+  </div>
+</footer>
+
+<script>
+  // Manejar envío del formulario
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const btn = form.querySelector('.btn-submit');
+    const originalText = btn.textContent;
+    
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+      } else {
+        alert('Hubo un error. Probá de nuevo o escribime por @vincularmente en X.');
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    } catch (error) {
+      alert('Hubo un error de conexión. Probá de nuevo.');
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>

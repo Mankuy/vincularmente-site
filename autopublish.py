@@ -185,7 +185,7 @@ def generate_article_html(title, html_content, description, slug):
     <nav>
       <a href="/">Artículos</a>
       <a href="https://go.hotmart.com/Q105244008P" target="_blank">Ebook</a>
-      <a href="https://wa.me/59899148716" target="_blank">Sesiones</a>
+      <a href="/contacto.html">Sesiones</a>
     </nav>
   </div>
 </header>
@@ -201,14 +201,14 @@ def generate_article_html(title, html_content, description, slug):
   <h3>¿Te resonó algo de esto?</h3>
   <p>Escribí "No estás Rot@" para la gente que siente que algo está mal pero no sabe nombrarlo. Psicología explicada como persona, no como profesora.</p>
   <a href="https://go.hotmart.com/Q105244008P" class="btn btn-primary" target="_blank">Ebook en Hotmart — $4.99</a>
-  <a href="https://wa.me/59899148716" class="btn btn-secondary" target="_blank">Sesiones por WhatsApp</a>
+  <a href="/contacto.html" class="btn btn-secondary">Pedí tu sesión</a>
 </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a> · <a href="https://wa.me/59899148716" target="_blank">WhatsApp</a></p>
+    <p>vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a> · <a href="/contacto.html">Contacto</a></p>
   </div>
 </footer>
 
