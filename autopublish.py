@@ -158,8 +158,9 @@ def extract_description(md_text):
     return ""
 
 
-def generate_article_html(title, html_content, description):
+def generate_article_html(title, html_content, description, slug):
     """Genera la página HTML completa del artículo."""
+    canonical_url = f"https://mankuy.github.io/vincularmente-site/posts/{slug}.html"
     return f'''<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -167,9 +168,12 @@ def generate_article_html(title, html_content, description):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title} — Vincularmente</title>
   <meta name="description" content="{description}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{canonical_url}">
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="article">
+  <meta property="og:url" content="{canonical_url}">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
 </head>
@@ -210,6 +214,38 @@ def generate_article_html(title, html_content, description):
 
 </body>
 </html>'''
+
+
+def update_sitemap(slug):
+    """Agrega la URL del artículo al sitemap.xml."""
+    sitemap_path = SITE_DIR / "sitemap.xml"
+    if not sitemap_path.exists():
+        log(f"  ⚠️ sitemap.xml no encontrado, creando uno nuevo")
+        sitemap_path.write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n</urlset>\n')
+
+    sitemap = sitemap_path.read_text()
+    url = f"https://mankuy.github.io/vincularmente-site/posts/{slug}.html"
+
+    if url in sitemap:
+        log(f"  ⏭️ Ya existe en sitemap.xml")
+        return
+
+    today = datetime.now().strftime("%Y-%m-%d")
+    entry = f'''  <url>
+    <loc>{url}</loc>
+    <lastmod>{today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+'''
+
+    # Insert before closing </urlset> tag
+    if '</urlset>' in sitemap:
+        sitemap = sitemap.replace('</urlset>', entry + '</urlset>')
+        sitemap_path.write_text(sitemap)
+        log(f"  ✅ URL agregada al sitemap.xml")
+    else:
+        log(f"  ⚠️ Tag </urlset> no encontrado en sitemap.xml")
 
 
 def update_index(title, slug, description):
@@ -305,7 +341,7 @@ def process_article(md_path, dry_run=False):
     )
 
     # Generate full HTML page
-    full_html = generate_article_html(title, html_content, description)
+    full_html = generate_article_html(title, html_content, description, slug)
 
     # Write to posts/
     POSTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -315,6 +351,9 @@ def process_article(md_path, dry_run=False):
 
     # Update index
     update_index(title, slug, description)
+
+    # Update sitemap
+    update_sitemap(slug)
 
     return True
 
