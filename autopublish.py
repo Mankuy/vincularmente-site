@@ -174,18 +174,18 @@ def generate_article_html(title, html_content, description, slug):
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{canonical_url}">
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
 </head>
 <body>
 
 <header>
   <div class="container">
-    <a href="/" class="logo">vincular<span>mente</span></a>
+    <a href="../index.html" class="logo">vincular<span>mente</span></a>
     <nav>
-      <a href="/">Artículos</a>
+      <a href="../index.html">Artículos</a>
       <a href="https://go.hotmart.com/Q105244008P" target="_blank">Ebook</a>
-      <a href="/contacto.html">Sesiones</a>
+      <a href="../contacto.html">Sesiones</a>
     </nav>
   </div>
 </header>
@@ -201,14 +201,14 @@ def generate_article_html(title, html_content, description, slug):
   <h3>¿Te resonó algo de esto?</h3>
   <p>Escribí "No estás Rot@" para la gente que siente que algo está mal pero no sabe nombrarlo. Psicología explicada como persona, no como profesora.</p>
   <a href="https://go.hotmart.com/Q105244008P" class="btn btn-primary" target="_blank">Ebook en Hotmart — $4.99</a>
-  <a href="/contacto.html" class="btn btn-secondary">Pedí tu sesión</a>
+  <a href="../contacto.html" class="btn btn-secondary">Pedí tu sesión</a>
 </div>
 
 </article>
 
 <footer>
   <div class="container">
-    <p>vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a> · <a href="/contacto.html">Contacto</a></p>
+    <p>vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a> · <a href="../contacto.html">Contacto</a></p>
   </div>
 </footer>
 
@@ -260,7 +260,7 @@ def update_index(title, slug, description):
 
     card_html = f'''
     <div class="post-card">
-      <h3><a href="/posts/{slug}.html">{title}</a></h3>
+      <h3><a href="posts/{slug}.html">{title}</a></h3>
       <p>{description}</p>
     </div>'''
 
