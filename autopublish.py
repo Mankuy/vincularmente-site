@@ -287,6 +287,9 @@ def process_article(md_path, dry_run=False):
         log(f"  [DRY RUN] No se publicaría: /posts/{slug}.html")
         return True
 
+    # Remove H1 from content (template already renders it)
+    md_text = re.sub(r'^# .+\n+', '', md_text, count=1, flags=re.MULTILINE)
+
     # Convert to HTML
     html_content = md_to_html(md_text)
 
