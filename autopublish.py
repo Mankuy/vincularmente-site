@@ -189,7 +189,7 @@ def generate_article_html(title, html_content, description):
 <article class="container">
 
 <h1>{title}</h1>
-<p class="meta">Por Facundo Galetta · Psicólogo · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a></p>
+<p class="meta">vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a></p>
 
 {html_content}
 
@@ -204,7 +204,7 @@ def generate_article_html(title, html_content, description):
 
 <footer>
   <div class="container">
-    <p>Facundo Galetta — Psicólogo · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a> · <a href="https://wa.me/59899148716" target="_blank">WhatsApp</a></p>
+    <p>vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a> · <a href="https://wa.me/59899148716" target="_blank">WhatsApp</a></p>
   </div>
 </footer>
 
