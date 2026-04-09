@@ -217,6 +217,11 @@ def update_index(title, slug, description):
     index_path = SITE_DIR / "index.html"
     index = index_path.read_text()
 
+    # Check for duplicate slug
+    if f"/posts/{slug}.html" in index:
+        log(f"  ⏭️ Ya existe en index.html, no se duplica")
+        return
+
     card_html = f'''
     <div class="post-card">
       <h3><a href="/posts/{slug}.html">{title}</a></h3>
