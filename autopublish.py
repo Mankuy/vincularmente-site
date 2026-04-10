@@ -203,7 +203,6 @@ def generate_article_html(title, html_content, description, slug, date=None):
   <nav>
     <a href="../index.html">Artículos</a>
     <a href="../index.html#ebooks">Ebooks</a>
-    <a href="../contacto.html">Sesiones</a>
   </nav>
 </header>
 
@@ -219,14 +218,13 @@ def generate_article_html(title, html_content, description, slug, date=None):
   <p>Escribí dos ebooks para la gente que siente que algo está mal pero no sabe nombrarlo. Psicología de a pie. Sin jerga, sin vueltas, las cosas como son.</p>
   <a href="https://go.hotmart.com/Q105244008P" class="btn btn-primary" target="_blank">"No estás Rot@" — $4.99</a>
   <a href="https://go.hotmart.com/I105316653N?dp=1" class="btn btn-primary" target="_blank">"Amás como amás" — $4.99</a>
-  <a href="../contacto.html" class="btn btn-secondary">Pedí tu sesión</a>
 </div>
 
 </article>
 
 <footer>
   <span>vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a></span>
-  <span><a href="../contacto.html">Contacto</a></span>
+  <span></span>
 </footer>
 
 <script>
