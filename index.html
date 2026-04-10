@@ -54,53 +54,76 @@
 </section>
 
 <section class="container">
-  <h2 style="color: #fff; margin-bottom: 1.5rem;">Artículos</h2>
+  <h2 style="color: #fff; margin-bottom: 1rem;">Artículos</h2>
 
-  <div class="posts-list">
+  <div class="category-filters">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="relaciones">Relaciones</button>
+    <button class="filter-btn" data-filter="autoconocimiento">Autoconocimiento</button>
+    <button class="filter-btn" data-filter="salud-mental">Salud mental</button>
+  </div>
 
-    <div class="post-card">
+  <div class="posts-grid">
+
+    <div class="post-card" data-category="relaciones">
+      <span class="post-tag">Relaciones</span>
       <h3><a href="posts/senales-relacion-toxica-2026-04-08.html">Señales de relación tóxica: por qué no las ves (y cómo empezar a verlas)</a></h3>
-      <p>Si estás leyendo esto, algo te hizo click. Quizás un post, una conversación, algo que dijo alguien y te quedó dando vueltas. No estás seguro/a de q...</p>
+      <p>Si estás leyendo esto, algo te hizo click. No estás seguro/a de que tu relación sea tóxica. Pero algo no cierra...</p>
     </div>
 
-    <div class="post-card">
+    <div class="post-card" data-category="autoconocimiento">
+      <span class="post-tag">Autoconocimiento</span>
       <h3><a href="posts/por-que-no-pido-ayuda-2026-04-08.html">Por qué no pido ayuda: lo que hay detrás de la independencia extrema</a></h3>
-      <p>Llevás tres días con dolor de cabeza. No fuiste al médico. Estás pasando por un momento de mierda y no le contaste a nadie. Tu pareja te pregunta q...</p>
+      <p>Llevás tres días con dolor de cabeza. No fuiste al médico. Estás pasando por un momento de mierda y no le contaste a nadie...</p>
     </div>
 
-    <div class="post-card">
+    <div class="post-card" data-category="autoconocimiento">
+      <span class="post-tag">Autoconocimiento</span>
       <h3><a href="posts/no-estas-roto-2026-04-08.html">No estás rot@/o: por qué sentís que algo está mal con vos y no es verdad</a></h3>
-      <p>Si esa frase te suena familiar, no estás solo/a. Es una de las creencias más comunes que aparecen en consulta. No es una frase dramática. No es un ...</p>
+      <p>Si esa frase te suena familiar, no estás solo/a. Es una de las creencias más comunes que aparecen en consulta...</p>
     </div>
 
-    
-    <div class="post-card">
+    <div class="post-card" data-category="relaciones">
+      <span class="post-tag">Relaciones</span>
       <h3><a href="posts/dependencia-emocional-que-es-y-como-superarla.html">Dependencia emocional: señales, causas y cómo salir</a></h3>
-      <p>Si estás leyendo esto, probablemente ya sabés que algo no está bien. No es que seas débil. No es que "no sabés estar solo/a". Es que tu cerebro apr...</p>
+      <p>Si estás leyendo esto, probablemente ya sabés que algo no está bien. No es que seas débil. Es que tu cerebro apr...</p>
     </div>
 
-    
-    <div class="post-card">
+    <div class="post-card" data-category="relaciones">
+      <span class="post-tag">Relaciones</span>
       <h3><a href="posts/ansiedad-en-relaciones-nuevas-2026-04-10.html">Ansiedad en relaciones nuevas: por qué aparece y qué hacer</a></h3>
-      <p>Estás conociendo a alguien. Todo va bien. Pero de golte te agarra una angustia que no podés explicar. Revisás el celular cada dos minutos. Analizás...</p>
+      <p>Estás conociendo a alguien. Todo va bien. Pero de golpe te agarra una angustia que no podés explicar...</p>
     </div>
 
-    
-    <div class="post-card">
+    <div class="post-card" data-category="relaciones">
+      <span class="post-tag">Relaciones</span>
       <h3><a href="posts/como-saber-si-tu-pareja-te-quiere-de-verdad-2026-04-10.html">Cómo saber si tu pareja te quiere de verdad (y no solo te necesita)</a></h3>
-      <p>Si estás acá, probablemente hay algo que no te cierra. No es que tu relación sea mala. Pero hay algo que te hace dudar. Y la duda, cuando se queda ...</p>
+      <p>Si estás acá, probablemente hay algo que no te cierra. No es que tu relación sea mala. Pero hay algo que te hace dudar...</p>
     </div>
 
-    
-    <div class="post-card">
+    <div class="post-card" data-category="relaciones">
+      <span class="post-tag">Relaciones</span>
       <h3><a href="posts/limites-en-relaciones-2026-04-10.html">Límites en relaciones: cómo ponerlos sin sentirte culpable</a></h3>
-      <p>Si sos de las personas que dice "sí" cuando quiere decir "no", que se queda callada para no molestar, que aguanta hasta explotar y después se sient...</p>
+      <p>Si sos de las personas que dice "sí" cuando quiere decir "no", que se queda callada para no molestar...</p>
     </div>
 
     <!-- Nuevos artículos se agregan arriba de esta línea -->
 
   </div>
 </section>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.post-card').forEach(card => {
+      card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
 
 <section class="container" style="margin-top: 3rem;" id="ebooks">
   <h2 style="color: #fff; margin-bottom: 1.5rem;">Ebooks</h2>

@@ -266,8 +266,8 @@ def update_sitemap(slug):
         log(f"  ⚠️ Tag </urlset> no encontrado en sitemap.xml")
 
 
-def update_index(title, slug, description):
-    """Agrega el artículo al index.html."""
+def update_index(title, slug, description, category="relaciones"):
+    """Agrega el artículo al index.html con categoría."""
     index_path = SITE_DIR / "index.html"
     index = index_path.read_text()
 
@@ -276,8 +276,16 @@ def update_index(title, slug, description):
         log(f"  ⏭️ Ya existe en index.html, no se duplica")
         return
 
+    category_labels = {
+        "relaciones": "Relaciones",
+        "autoconocimiento": "Autoconocimiento",
+        "salud-mental": "Salud mental",
+    }
+    tag_label = category_labels.get(category, "Relaciones")
+
     card_html = f'''
-    <div class="post-card">
+    <div class="post-card" data-category="{category}">
+      <span class="post-tag">{tag_label}</span>
       <h3><a href="posts/{slug}.html">{title}</a></h3>
       <p>{description}</p>
     </div>'''
@@ -287,7 +295,7 @@ def update_index(title, slug, description):
     if marker in index:
         index = index.replace(marker, card_html + '\n\n    ' + marker)
         index_path.write_text(index)
-        log(f"  ✅ Artículo agregado al index.html")
+        log(f"  ✅ Artículo agregado al index.html (categoría: {tag_label})")
     else:
         log(f"  ⚠️ Marker no encontrado en index.html, no se actualizó")
 
