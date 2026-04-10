@@ -184,7 +184,7 @@ def generate_article_html(title, html_content, description, slug):
     <a href="../index.html" class="logo">vincular<span>mente</span></a>
     <nav>
       <a href="../index.html">Artículos</a>
-      <a href="../ebooks/amas-como-amas.html">Ebooks</a>
+      <a href="../index.html#ebooks">Ebooks</a>
       <a href="../contacto.html">Sesiones</a>
     </nav>
   </div>
