@@ -301,6 +301,7 @@ def update_index(title, slug, description, category="relaciones"):
         "relaciones": "Relaciones",
         "autoconocimiento": "Autoconocimiento",
         "salud-mental": "Salud mental",
+        "existencial": "Existencial",
     }
     tag_label = category_labels.get(category, "Relaciones")
 
