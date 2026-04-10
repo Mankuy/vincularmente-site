@@ -220,7 +220,14 @@ nav a:hover { color: var(--text); }
 .filters {
   display: flex;
   gap: 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 0.5rem;
 }
+
+.filters::-webkit-scrollbar { display: none; }
 
 .filter-btn {
   background: none;
