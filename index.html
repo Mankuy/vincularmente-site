@@ -16,6 +16,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@vincularmente">
   <meta name="twitter:image" content="https://mankuy.github.io/vincularmente-site/assets/og-image.png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
   <link rel="stylesheet" href="assets/css/style.css">
   <script type="application/ld+json">
   {
@@ -30,37 +31,41 @@
     }
   }
   </script>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
 </head>
 <body>
 
+<button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">☀</button>
+
 <header>
-  <div class="container">
-    <a href="index.html" class="logo">vincular<span>mente</span></a>
-    <nav>
-      <a href="posts/senales-relacion-toxica-2026-04-08.html">Artículos</a>
-      <a href="#ebooks">Ebooks</a>
-      <a href="contacto.html">Sesiones</a>
-    </nav>
-  </div>
+  <a href="index.html" class="logo">vincular<span>mente</span></a>
+  <nav>
+    <a href="#articulos">Artículos</a>
+    <a href="#ebooks">Ebooks</a>
+    <a href="contacto.html">Sesiones</a>
+  </nav>
 </header>
 
 <section class="hero">
-  <div class="container">
-    <h1>No estás Rot@.<br>Estás usando un manual viejo.</h1>
-    <p>Psicología de a pie. Sin jerga, sin vueltas, las cosas como son. Vínculos y salud mental para quien se anima a mirar adentro.</p>
-    <a href="contacto.html" class="btn btn-primary">Pedí tu sesión</a>
+  <div class="hero-text">
+    <h1>No estás rot@.<br><em>Estás usando un<br>manual viejo.</em></h1>
+    <p>Psicología de a pie. Sin jerga, sin vueltas, las cosas como son — para quien se anima a mirar adentro.</p>
+    <a href="contacto.html" class="btn">Pedí tu sesión</a>
+  </div>
+  <div class="hero-aside">
+    <p>"Yo con eso no puedo, me da mucho miedo." Si podés, solo tenés que atravesar el sendero. No es no poder. Es no querer sentir lo que hay del otro lado.</p>
+    <div class="author">— vincularmente</div>
   </div>
 </section>
 
-<section class="container">
-  <h2 style="color: #fff; margin-bottom: 1rem;">Artículos</h2>
-
-  <div class="category-filters">
-    <button class="filter-btn active" data-filter="all">Todos</button>
-    <button class="filter-btn" data-filter="relaciones">Relaciones</button>
-    <button class="filter-btn" data-filter="autoconocimiento">Autoconocimiento</button>
-    <button class="filter-btn" data-filter="salud-mental">Salud mental</button>
+<section class="section" id="articulos">
+  <div class="section-header">
+    <h2>Artículos</h2>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="relaciones">Relaciones</button>
+      <button class="filter-btn" data-filter="autoconocimiento">Autoconocimiento</button>
+      <button class="filter-btn" data-filter="existencial">Existencial</button>
+    </div>
   </div>
 
   <div class="posts-grid">
@@ -68,37 +73,37 @@
     <div class="post-card" data-category="relaciones">
       <span class="post-tag">Relaciones</span>
       <h3><a href="posts/senales-relacion-toxica-2026-04-08.html">Señales de relación tóxica: por qué no las ves</a></h3>
-      <p>Lo tóxico no siempre es un grito. A veces es silencio. Es que te ignoren. Es que nunca estén cuando los necesitás.</p>
+      <p>Lo tóxico no siempre es un grito. A veces es silencio. Es que te ignoren.</p>
     </div>
 
     <div class="post-card" data-category="autoconocimiento">
       <span class="post-tag">Autoconocimiento</span>
-      <h3><a href="posts/por-que-no-pido-ayuda-2026-04-08.html">Por qué no pido ayuda: lo que hay detrás de la independencia extrema</a></h3>
+      <h3><a href="posts/por-que-no-pido-ayuda-2026-04-08.html">Por qué no pido ayuda</a></h3>
       <p>Llevás tres días con dolor de cabeza. No fuiste al médico. Pedir ayuda se siente como rendirse.</p>
     </div>
 
     <div class="post-card" data-category="autoconocimiento">
       <span class="post-tag">Autoconocimiento</span>
-      <h3><a href="posts/no-estas-roto-2026-04-08.html">No estás rot@/o: por qué sentís que algo está mal con vos</a></h3>
+      <h3><a href="posts/no-estas-roto-2026-04-08.html">No estás rot@/o: por qué sentís que algo está mal</a></h3>
       <p>"Creo que el problema soy yo." Es la frase que más escucho en consulta. Y no es verdad.</p>
     </div>
 
     <div class="post-card" data-category="relaciones">
       <span class="post-tag">Relaciones</span>
-      <h3><a href="posts/dependencia-emocional-que-es-y-como-superarla.html">Dependencia emocional: señales, causas y cómo salir</a></h3>
+      <h3><a href="posts/dependencia-emocional-que-es-y-como-superarla.html">Dependencia emocional</a></h3>
       <p>No es "querer mucho". Es que tu bienestar emocional depende de otra persona.</p>
     </div>
 
     <div class="post-card" data-category="relaciones">
       <span class="post-tag">Relaciones</span>
-      <h3><a href="posts/ansiedad-en-relaciones-nuevas-2026-04-10.html">Ansiedad en relaciones nuevas: por qué aparece y qué hacer</a></h3>
-      <p>Estás conociendo a alguien. Todo va bien. Pero de golpe te agarra una angustia que no podés explicar.</p>
+      <h3><a href="posts/ansiedad-en-relaciones-nuevas-2026-04-10.html">Ansiedad en relaciones nuevas</a></h3>
+      <p>Estás conociendo a alguien. Todo va bien. Pero de golpe te agarra una angustia.</p>
     </div>
 
     <div class="post-card" data-category="relaciones">
       <span class="post-tag">Relaciones</span>
       <h3><a href="posts/como-saber-si-tu-pareja-te-quiere-de-verdad-2026-04-10.html">Cómo saber si tu pareja te quiere de verdad</a></h3>
-      <p>El amor de verdad no se demuestra con palabras. Se demuestra con acciones repetidas y consistentes.</p>
+      <p>El amor de verdad no se demuestra con palabras. Se demuestra con acciones.</p>
     </div>
 
     <div class="post-card" data-category="relaciones">
@@ -107,12 +112,109 @@
       <p>Si decís "sí" cuando querés decir "no" y aguantás hasta explotar — esto es para vos.</p>
     </div>
 
+    
+    <div class="post-card" data-category="relaciones">
+      <span class="post-tag">Relaciones</span>
+      <h3><a href="posts/ansiedad-en-relaciones-nuevas-2026-04-10.html">Ansiedad en relaciones nuevas: por qué aparece y qué hacer</a></h3>
+      <p>Estás conociendo a alguien. Todo va bien. Pero de golpe te agarra una angustia que no podés explicar. Revisás el celular cada dos minutos. Analizás...</p>
+    </div>
+
+    
+    <div class="post-card" data-category="relaciones">
+      <span class="post-tag">Relaciones</span>
+      <h3><a href="posts/como-saber-si-tu-pareja-te-quiere-de-verdad-2026-04-10.html">Cómo saber si tu pareja te quiere de verdad (y no solo te necesita)</a></h3>
+      <p>El amor de verdad no se demuestra con palabras. Se demuestra con acciones repetidas, consistentes, que no dependen del humor.</p>
+    </div>
+
+    
+    <div class="post-card" data-category="relaciones">
+      <span class="post-tag">Relaciones</span>
+      <h3><a href="posts/dependencia-emocional-que-es-y-como-superarla.html">Dependencia emocional: señales, causas y cómo salir</a></h3>
+      <p>No es "querer mucho". Es que tu bienestar emocional depende de otra persona.</p>
+    </div>
+
+    
+    <div class="post-card" data-category="relaciones">
+      <span class="post-tag">Relaciones</span>
+      <h3><a href="posts/limites-en-relaciones-2026-04-10.html">Límites en relaciones: cómo ponerlos sin sentirte culpable</a></h3>
+      <p>Si sos de las personas que dice "sí" cuando quiere decir "no", que aguanta hasta explotar y después se siente culpable por explotar — esto es para ...</p>
+    </div>
+
+    
+    <div class="post-card" data-category="relaciones">
+      <span class="post-tag">Relaciones</span>
+      <h3><a href="posts/no-estas-roto-2026-04-08.html">No estás rot@/o: por qué sentís que algo está mal con vos y no es verdad</a></h3>
+      <p>Es la frase que más escucho en consulta. Y no es verdad.</p>
+    </div>
+
+    
+    <div class="post-card" data-category="relaciones">
+      <span class="post-tag">Relaciones</span>
+      <h3><a href="posts/por-que-no-pido-ayuda-2026-04-08.html">Por qué no pido ayuda: lo que hay detrás de la independencia extrema</a></h3>
+      <p>Llevás tres días con dolor de cabeza. No fuiste al médico. Estás pasando por un momento de mierda y no le contaste a nadie.</p>
+    </div>
+
+    
+    <div class="post-card" data-category="relaciones">
+      <span class="post-tag">Relaciones</span>
+      <h3><a href="posts/senales-relacion-toxica-2026-04-08.html">Señales de relación tóxica: por qué no las ves</a></h3>
+      <p>Lo tóxico no siempre es un grito. A veces es silencio. Es que te ignoren. Es que nunca estén cuando los necesitás.</p>
+    </div>
+
     <!-- Nuevos artículos se agregan arriba de esta línea -->
 
   </div>
 </section>
 
+<section class="ebooks-section" id="ebooks">
+  <div class="ebooks-inner">
+    <h2>Ebooks</h2>
+    <div class="ebooks-grid">
+      <div class="ebook-card">
+        <h3>"No estás Rot@"</h3>
+        <p>Para entender por qué sentís lo que sentís y cómo empezar a desarmarlo. De adentro hacia afuera.</p>
+        <a href="https://go.hotmart.com/Q105244008P" class="btn" target="_blank">$4.99 en Hotmart</a>
+      </div>
+      <div class="ebook-card">
+        <h3>"Amás como amás"</h3>
+        <p>Tu estilo de apego y por qué elegís siempre al mismo tipo de persona.</p>
+        <a href="https://go.hotmart.com/I105316653N?dp=1" class="btn" target="_blank">$4.99 en Hotmart</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a></span>
+  <span><a href="contacto.html">Contacto</a></span>
+</footer>
+
 <script>
+// Theme toggle — dark by default
+function toggleTheme() {
+  const body = document.body;
+  const btn = document.querySelector('.theme-toggle');
+  if (body.getAttribute('data-theme') === 'light') {
+    body.removeAttribute('data-theme');
+    btn.textContent = '☀';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    body.setAttribute('data-theme', 'light');
+    btn.textContent = '☾';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+// Load saved theme
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.body.setAttribute('data-theme', 'light');
+    document.querySelector('.theme-toggle').textContent = '☾';
+  }
+})();
+
+// Category filters
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -124,32 +226,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 </script>
-
-<section class="container" style="margin-top: 3rem;" id="ebooks">
-  <h2 style="color: #fff; margin-bottom: 1.5rem;">Ebooks</h2>
-
-  <div class="ebooks-grid">
-
-    <div class="cta-box">
-      <h3>"No estás Rot@"</h3>
-      <p>Si alguna vez sentiste que algo está mal en vos pero no sabés qué, este ebook te va a dar el lenguaje para entenderlo. Psicología de a pie. Sin jerga, sin vueltas, las cosas como son.</p>
-      <a href="https://go.hotmart.com/Q105244008P" class="btn btn-primary" target="_blank">$4.99 en Hotmart</a>
-    </div>
-
-    <div class="cta-box">
-      <h3>"Amás como amás"</h3>
-      <p>Estilos de apego y por qué elegís siempre al mismo tipo de persona. Descubrí tu estilo, entendé tus patrones y aprendé a elegir diferente.</p>
-      <a href="https://go.hotmart.com/I105316653N?dp=1" class="btn btn-primary" target="_blank">$4.99 en Hotmart</a>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <p>vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a> · <a href="contacto.html">Contacto</a></p>
-  </div>
-</footer>
 
 </body>
 </html>

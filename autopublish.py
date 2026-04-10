@@ -159,7 +159,7 @@ def extract_description(md_text):
 
 
 def generate_article_html(title, html_content, description, slug, date=None):
-    """Genera la página HTML completa del artículo."""
+    """Genera la página HTML completa del artículo (nuevo diseño editorial)."""
     if date is None:
         date = datetime.now().strftime("%Y-%m-%d")
     canonical_url = f"https://mankuy.github.io/vincularmente-site/posts/{slug}.html"
@@ -196,18 +196,18 @@ def generate_article_html(title, html_content, description, slug, date=None):
 </head>
 <body>
 
+<button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">☀</button>
+
 <header>
-  <div class="container">
-    <a href="../index.html" class="logo">vincular<span>mente</span></a>
-    <nav>
-      <a href="../index.html">Artículos</a>
-      <a href="../index.html#ebooks">Ebooks</a>
-      <a href="../contacto.html">Sesiones</a>
-    </nav>
-  </div>
+  <a href="../index.html" class="logo">vincular<span>mente</span></a>
+  <nav>
+    <a href="../index.html">Artículos</a>
+    <a href="../index.html#ebooks">Ebooks</a>
+    <a href="../contacto.html">Sesiones</a>
+  </nav>
 </header>
 
-<article class="container">
+<article>
 
 <h1>{title}</h1>
 <p class="meta">vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a></p>
@@ -225,10 +225,32 @@ def generate_article_html(title, html_content, description, slug, date=None):
 </article>
 
 <footer>
-  <div class="container">
-    <p>vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a> · <a href="../contacto.html">Contacto</a></p>
-  </div>
+  <span>vincularmente · <a href="https://x.com/vincularmente" target="_blank">@vincularmente</a></span>
+  <span><a href="../contacto.html">Contacto</a></span>
 </footer>
+
+<script>
+function toggleTheme() {{
+  const body = document.body;
+  const btn = document.querySelector('.theme-toggle');
+  if (body.getAttribute('data-theme') === 'light') {{
+    body.removeAttribute('data-theme');
+    btn.textContent = '☀';
+    localStorage.setItem('theme', 'dark');
+  }} else {{
+    body.setAttribute('data-theme', 'light');
+    btn.textContent = '☾';
+    localStorage.setItem('theme', 'light');
+  }}
+}}
+(function() {{
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {{
+    document.body.setAttribute('data-theme', 'light');
+    document.querySelector('.theme-toggle').textContent = '☾';
+  }}
+}})();
+</script>
 
 </body>
 </html>'''
