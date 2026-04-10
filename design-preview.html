@@ -4,17 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vincularmente — Diseño Preview</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+
+    :root {
+      --bg: #faf8f5;
+      --bg-alt: #f0ece6;
+      --text: #2a2a2a;
+      --text-muted: #666;
+      --text-dim: #999;
+      --accent: #c45d3e;
+      --accent-hover: #d4714f;
+      --border: #e5e0d8;
+      --card-bg: #fff;
+      --ebooks-bg: #2a2a2a;
+      --ebooks-text: #faf8f5;
+      --ebooks-card: #363636;
+      --ebooks-muted: #aaa;
+      --btn-bg: #2a2a2a;
+      --btn-text: #faf8f5;
+      --tag-bg: transparent;
+      --hero-quote-bg: #f0ece6;
+    }
+
+    [data-theme="dark"] {
+      --bg: #141414;
+      --bg-alt: #1c1c1c;
+      --text: #e8e4df;
+      --text-muted: #a09890;
+      --text-dim: #777;
+      --accent: #d4714f;
+      --accent-hover: #e08565;
+      --border: #2a2a2a;
+      --card-bg: #1c1c1c;
+      --ebooks-bg: #0c0c0c;
+      --ebooks-text: #e8e4df;
+      --ebooks-card: #222;
+      --ebooks-muted: #888;
+      --btn-bg: #d4714f;
+      --btn-text: #fff;
+      --tag-bg: transparent;
+      --hero-quote-bg: #1c1c1c;
+    }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #faf8f5;
-      color: #2a2a2a;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
       font-size: 16px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* === THEME TOGGLE === */
+    .theme-toggle {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      transition: all 0.3s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
     /* === HEADER === */
@@ -30,24 +98,25 @@
     .logo {
       font-family: 'Instrument Serif', serif;
       font-size: 1.6rem;
-      color: #2a2a2a;
+      color: var(--text);
       text-decoration: none;
       letter-spacing: -0.5px;
     }
 
-    .logo span { color: #c45d3e; }
+    .logo span { color: var(--accent); }
 
     nav a {
-      color: #888;
+      color: var(--text-dim);
       margin-left: 1.8rem;
       font-size: 0.85rem;
       font-weight: 500;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 1px;
+      transition: color 0.2s;
     }
 
-    nav a:hover { color: #2a2a2a; }
+    nav a:hover { color: var(--text); }
 
     /* === HERO === */
     .hero {
@@ -64,19 +133,19 @@
       font-family: 'Instrument Serif', serif;
       font-size: 3.2rem;
       line-height: 1.1;
-      color: #2a2a2a;
+      color: var(--text);
       letter-spacing: -1px;
       font-weight: 400;
     }
 
     .hero h1 em {
       font-style: italic;
-      color: #c45d3e;
+      color: var(--accent);
     }
 
     .hero-text p {
       font-size: 1.05rem;
-      color: #666;
+      color: var(--text-muted);
       margin-top: 1.2rem;
       max-width: 420px;
     }
@@ -85,8 +154,8 @@
       display: inline-block;
       margin-top: 1.5rem;
       padding: 0.9rem 2rem;
-      background: #2a2a2a;
-      color: #faf8f5;
+      background: var(--btn-bg);
+      color: var(--btn-text);
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 600;
@@ -95,19 +164,20 @@
       transition: background 0.2s;
     }
 
-    .hero-text .btn:hover { background: #c45d3e; }
+    .hero-text .btn:hover { background: var(--accent); }
 
     .hero-aside {
-      background: #f0ece6;
+      background: var(--hero-quote-bg);
       padding: 2rem;
-      border-left: 3px solid #c45d3e;
+      border-left: 3px solid var(--accent);
+      transition: background 0.3s;
     }
 
     .hero-aside p {
       font-family: 'Instrument Serif', serif;
       font-size: 1.3rem;
       font-style: italic;
-      color: #555;
+      color: var(--text-muted);
       line-height: 1.5;
     }
 
@@ -115,7 +185,7 @@
       font-family: 'Inter', sans-serif;
       font-size: 0.8rem;
       font-style: normal;
-      color: #999;
+      color: var(--text-dim);
       margin-top: 1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -133,7 +203,7 @@
       justify-content: space-between;
       align-items: baseline;
       margin-bottom: 2rem;
-      border-bottom: 1px solid #e5e0d8;
+      border-bottom: 1px solid var(--border);
       padding-bottom: 1rem;
     }
 
@@ -141,7 +211,7 @@
       font-family: 'Instrument Serif', serif;
       font-size: 1.8rem;
       font-weight: 400;
-      color: #2a2a2a;
+      color: var(--text);
     }
 
     .filters {
@@ -152,7 +222,7 @@
     .filter-btn {
       background: none;
       border: none;
-      color: #999;
+      color: var(--text-dim);
       font-size: 0.8rem;
       font-weight: 500;
       cursor: pointer;
@@ -164,10 +234,10 @@
       transition: all 0.2s;
     }
 
-    .filter-btn:hover { color: #2a2a2a; }
+    .filter-btn:hover { color: var(--text); }
     .filter-btn.active {
-      background: #2a2a2a;
-      color: #faf8f5;
+      background: var(--btn-bg);
+      color: var(--btn-text);
     }
 
     .posts-grid {
@@ -177,19 +247,19 @@
     }
 
     .post-card {
-      border-top: 2px solid #e5e0d8;
+      border-top: 2px solid var(--border);
       padding-top: 1.2rem;
       transition: border-color 0.2s;
     }
 
-    .post-card:hover { border-top-color: #c45d3e; }
+    .post-card:hover { border-top-color: var(--accent); }
 
     .post-tag {
       font-size: 0.7rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #c45d3e;
+      color: var(--accent);
       margin-bottom: 0.5rem;
       display: block;
     }
@@ -203,22 +273,24 @@
     }
 
     .post-card h3 a {
-      color: #2a2a2a;
+      color: var(--text);
       text-decoration: none;
+      transition: color 0.2s;
     }
 
-    .post-card h3 a:hover { color: #c45d3e; }
+    .post-card h3 a:hover { color: var(--accent); }
 
     .post-card p {
       font-size: 0.85rem;
-      color: #888;
+      color: var(--text-dim);
       line-height: 1.5;
     }
 
     /* === EBOOKS === */
     .ebooks-section {
-      background: #2a2a2a;
+      background: var(--ebooks-bg);
       padding: 4rem 2rem;
+      transition: background 0.3s;
     }
 
     .ebooks-inner {
@@ -230,7 +302,7 @@
       font-family: 'Instrument Serif', serif;
       font-size: 1.8rem;
       font-weight: 400;
-      color: #faf8f5;
+      color: var(--ebooks-text);
       margin-bottom: 2rem;
     }
 
@@ -241,21 +313,22 @@
     }
 
     .ebook-card {
-      background: #363636;
+      background: var(--ebooks-card);
       padding: 2rem;
-      border-top: 2px solid #c45d3e;
+      border-top: 2px solid var(--accent);
+      transition: background 0.3s;
     }
 
     .ebook-card h3 {
       font-family: 'Instrument Serif', serif;
       font-size: 1.4rem;
-      color: #faf8f5;
+      color: var(--ebooks-text);
       font-weight: 400;
       margin-bottom: 0.5rem;
     }
 
     .ebook-card p {
-      color: #aaa;
+      color: var(--ebooks-muted);
       font-size: 0.9rem;
       margin-bottom: 1.5rem;
     }
@@ -263,7 +336,7 @@
     .ebook-card .btn {
       display: inline-block;
       padding: 0.7rem 1.5rem;
-      background: #c45d3e;
+      background: var(--accent);
       color: #fff;
       text-decoration: none;
       font-size: 0.8rem;
@@ -273,26 +346,27 @@
       transition: background 0.2s;
     }
 
-    .ebook-card .btn:hover { background: #d4714f; }
+    .ebook-card .btn:hover { background: var(--accent-hover); }
 
     /* === FOOTER === */
     footer {
       max-width: 1100px;
       margin: 0 auto;
       padding: 2rem;
-      border-top: 1px solid #e5e0d8;
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
-      color: #999;
+      color: var(--text-dim);
       font-size: 0.8rem;
     }
 
     footer a {
-      color: #999;
+      color: var(--text-dim);
       text-decoration: none;
+      transition: color 0.2s;
     }
 
-    footer a:hover { color: #c45d3e; }
+    footer a:hover { color: var(--accent); }
 
     /* === MOBILE === */
     @media (max-width: 768px) {
@@ -310,12 +384,12 @@
       }
     }
 
-    /* Marca de agua "preview" */
+    /* Preview badge */
     .preview-badge {
       position: fixed;
       top: 1rem;
       right: 1rem;
-      background: #c45d3e;
+      background: var(--accent);
       color: white;
       padding: 0.4rem 1rem;
       font-size: 0.75rem;
@@ -330,6 +404,7 @@
 <body>
 
 <div class="preview-badge">Preview — No publicado</div>
+<button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">☾</button>
 
 <header>
   <a href="#" class="logo">vincular<span>mente</span></a>
@@ -347,7 +422,7 @@
     <a href="#" class="btn">Pedí tu sesión</a>
   </div>
   <div class="hero-aside">
-    <p>"La frase que más escucho en consulta es siempre la misma: 'Creo que el problema soy yo.' No lo sos. Solo aprendiste mal cómo funciona el amor."</p>
+    <p>"Yo con eso no puedo, me da mucho miedo." Si podés, solo tenés que atravesar el sendero. No es no poder. Es no querer sentir lo que hay del otro lado.</p>
     <div class="author">— vincularmente</div>
   </div>
 </section>
@@ -359,7 +434,7 @@
       <button class="filter-btn active">Todos</button>
       <button class="filter-btn">Relaciones</button>
       <button class="filter-btn">Autoconocimiento</button>
-      <button class="filter-btn">Salud mental</button>
+      <button class="filter-btn">Existencial</button>
     </div>
   </div>
 
@@ -367,37 +442,37 @@
     <div class="post-card">
       <span class="post-tag">Relaciones</span>
       <h3><a href="#">Señales de relación tóxica: por qué no las ves</a></h3>
-      <p>Lo tóxico no siempre es un grito. A veces es silencio. Es que te ignoren.</p>
+      <p>Lo tóxico no siempre es un grito. A veces es silencio.</p>
     </div>
 
     <div class="post-card">
       <span class="post-tag">Autoconocimiento</span>
       <h3><a href="#">Por qué no pido ayuda</a></h3>
-      <p>Llevás tres días con dolor de cabeza. No fuiste al médico. Pedir ayuda se siente como rendirse.</p>
+      <p>Pedir ayuda se siente como rendirse. Y eso, para vos, es inaceptable.</p>
     </div>
 
     <div class="post-card">
-      <span class="post-tag">Autoconocimiento</span>
+      <span class="post-tag">Existencial</span>
       <h3><a href="#">No estás rot@/o</a></h3>
-      <p>"Creo que el problema soy yo." Es la frase que más escucho en consulta. Y no es verdad.</p>
+      <p>"Creo que el problema soy yo." No lo sos. Solo aprendiste mal.</p>
     </div>
 
     <div class="post-card">
       <span class="post-tag">Relaciones</span>
       <h3><a href="#">Dependencia emocional</a></h3>
-      <p>No es "querer mucho". Es que tu bienestar emocional depende de otra persona.</p>
+      <p>No es "querer mucho". Es que tu bienestar depende de otra persona.</p>
     </div>
 
     <div class="post-card">
-      <span class="post-tag">Relaciones</span>
-      <h3><a href="#">Ansiedad en relaciones nuevas</a></h3>
-      <p>Estás conociendo a alguien. Todo va bien. Pero de golpe te agarra una angustia.</p>
+      <span class="post-tag">Existencial</span>
+      <h3><a href="#">El miedo a lo que sentís</a></h3>
+      <p>No es no poder. Es no querer sentir lo que hay del otro lado.</p>
     </div>
 
     <div class="post-card">
       <span class="post-tag">Relaciones</span>
       <h3><a href="#">Cómo saber si tu pareja te quiere de verdad</a></h3>
-      <p>El amor de verdad no se demuestra con palabras. Se demuestra con acciones.</p>
+      <p>El amor de verdad se demuestra con acciones, no palabras.</p>
     </div>
   </div>
 </section>
@@ -408,7 +483,7 @@
     <div class="ebooks-grid">
       <div class="ebook-card">
         <h3>"No estás Rot@"</h3>
-        <p>Psicología de a pie. Para entender por qué sentís lo que sentís y cómo empezar a desarmarlo.</p>
+        <p>Para entender por qué sentís lo que sentís y cómo empezar a desarmarlo. De adentro hacia afuera.</p>
         <a href="#" class="btn">$4.99 en Hotmart</a>
       </div>
       <div class="ebook-card">
@@ -424,6 +499,20 @@
   <span>vincularmente · <a href="#">@vincularmente</a></span>
   <span><a href="#">Contacto</a></span>
 </footer>
+
+<script>
+function toggleTheme() {
+  const body = document.body;
+  const btn = document.querySelector('.theme-toggle');
+  if (body.getAttribute('data-theme') === 'dark') {
+    body.removeAttribute('data-theme');
+    btn.textContent = '☾';
+  } else {
+    body.setAttribute('data-theme', 'dark');
+    btn.textContent = '☀';
+  }
+}
+</script>
 
 </body>
 </html>
