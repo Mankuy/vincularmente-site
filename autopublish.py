@@ -214,7 +214,7 @@ def generate_article_html(title, html_content, description, slug):
 
 <div class="cta-box">
   <h3>¿Te resonó algo de esto?</h3>
-  <p>Escribí dos ebooks para la gente que siente que algo está mal pero no sabe nombrarlo. Psicología explicada como persona, no como profesora.</p>
+  <p>Escribí dos ebooks para la gente que siente que algo está mal pero no sabe nombrarlo. Psicología de a pie. Sin jerga, sin vueltas, las cosas como son.</p>
   <a href="https://go.hotmart.com/Q105244008P" class="btn btn-primary" target="_blank">"No estás Rot@" — $4.99</a>
   <a href="https://go.hotmart.com/I105316653N?dp=1" class="btn btn-primary" target="_blank">"Amás como amás" — $4.99</a>
   <a href="../contacto.html" class="btn btn-secondary">Pedí tu sesión</a>
@@ -347,7 +347,7 @@ def process_article(md_path, dry_run=False):
 
     # Remove CTA markdown lines (they're replaced by the template)
     html_content = html_content.replace(
-        '<p>*Si algo de esto te resonó, escribí un ebook sobre esto. Se llama "No estás Rot@" y está en Hotmart por $4.99. No es autoayuda. Es psicología explicada como persona, no como profesora.*</p>', ''
+        '<p>*Si algo de esto te resonó, escribí un ebook sobre esto. Se llama "No estás Rot@" y está en Hotmart por $4.99. No es autoayuda. Es psicología de a pie. Sin jerga, sin vueltas, las cosas como son.*</p>', ''
     )
     html_content = html_content.replace(
         '<p>*¿Querés charlar sobre esto? Escribime por WhatsApp: 59899148716*</p>', ''
