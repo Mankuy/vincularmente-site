@@ -252,6 +252,23 @@ footer a {
   margin: 0;
 }
 
+/* Ebooks grid */
+.ebooks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.ebooks-grid .cta-box {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.ebooks-grid .cta-box p {
+  flex: 1;
+}
+
 /* Mobile */
 @media (max-width: 600px) {
   article h1 {
@@ -264,5 +281,9 @@ footer a {
 
   nav {
     display: none;
+  }
+
+  .ebooks-grid {
+    grid-template-columns: 1fr;
   }
 }
