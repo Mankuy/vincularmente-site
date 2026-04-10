@@ -158,8 +158,10 @@ def extract_description(md_text):
     return ""
 
 
-def generate_article_html(title, html_content, description, slug):
+def generate_article_html(title, html_content, description, slug, date=None):
     """Genera la página HTML completa del artículo."""
+    if date is None:
+        date = datetime.now().strftime("%Y-%m-%d")
     canonical_url = f"https://mankuy.github.io/vincularmente-site/posts/{slug}.html"
     return f'''<!DOCTYPE html>
 <html lang="es">
