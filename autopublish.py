@@ -287,12 +287,13 @@ def update_sitemap(slug):
 
 
 def update_index(title, slug, description, category="relaciones"):
-    """Agrega el artículo al index.html con categoría."""
+    """Agrega el artículo al index.html con categoría (sin duplicados)."""
     index_path = SITE_DIR / "index.html"
     index = index_path.read_text()
 
-    # Check for duplicate slug
-    if f"/posts/{slug}.html" in index:
+    # Check for duplicate by exact slug match in href
+    slug_url = f"posts/{slug}.html"
+    if slug_url in index:
         log(f"  ⏭️ Ya existe en index.html, no se duplica")
         return
 
