@@ -174,7 +174,22 @@ def generate_article_html(title, html_content, description, slug):
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{canonical_url}">
+  <meta property="og:image" content="https://mankuy.github.io/vincularmente-site/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@vincularmente">
+  <meta name="twitter:image" content="https://mankuy.github.io/vincularmente-site/assets/og-image.png">
   <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{title}",
+    "author": {{"@type": "Person", "name": "vincularmente"}},
+    "publisher": {{"@type": "Organization", "name": "vincularmente"}},
+    "datePublished": "{date}",
+    "url": "{canonical_url}"
+  }}
+  </script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
 </head>
 <body>
