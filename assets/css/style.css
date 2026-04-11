@@ -652,4 +652,70 @@ footer a:hover { color: var(--accent); }
   .newsletter-form {
     flex-direction: column;
   }
+
+  .confirmed-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .confirmed-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.8rem;
+  }
+}
+
+/* === CONFIRMED BANNER === */
+.confirmed-banner {
+  background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  color: #fff;
+  padding: 1.2rem 1.5rem;
+  position: relative;
+  animation: slideDown 0.5s ease-out;
+}
+
+.confirmed-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.confirmed-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.confirmed-inner strong {
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.confirmed-inner p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.confirmed-close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.3rem;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.confirmed-close:hover {
+  color: #fff;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }

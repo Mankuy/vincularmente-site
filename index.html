@@ -48,6 +48,17 @@
 </head>
 <body>
 
+<div class="confirmed-banner" id="confirmedBanner" style="display:none;">
+  <div class="confirmed-inner">
+    <span class="confirmed-icon">🤍</span>
+    <div>
+      <strong>¡Estás adentro!</strong>
+      <p>A partir de ahora recibís un artículo de psicología de a pie cada día. Bienvenido/a.</p>
+    </div>
+    <button class="confirmed-close" onclick="document.getElementById('confirmedBanner').style.display='none'">✕</button>
+  </div>
+</div>
+
 <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">☀</button>
 
 <header>
@@ -190,6 +201,15 @@ function toggleTheme() {
     document.querySelector('.theme-toggle').textContent = '☾';
   }
 })();
+// Show confirmed banner if URL has ?confirmed=true
+if (new URLSearchParams(window.location.search).get('confirmed') === 'true') {
+  const banner = document.getElementById('confirmedBanner');
+  banner.style.display = 'block';
+  // Scroll to top so user sees it
+  window.scrollTo(0, 0);
+  // Clean URL (remove ?confirmed=true)
+  window.history.replaceState({}, '', 'index.html');
+}
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
