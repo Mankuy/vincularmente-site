@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vincularmente — Psicología, vínculos y realidad</title>
-  <meta name="description" content="Psicólogo. Sesiones online. Artículos sobre salud mental, vínculos y autocomprensión. Sin jerga, sin vueltas.">
+  <meta name="description" content="Psicólogo. Sesiones online. Artículos sobre salud mental, vínculos y autocomprensión. Suscribite al newsletter — un artículo nuevo cada día.">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="Y-ZjR9qzAUJspJb04X8YyIHZXUIZAyx0hBnXxqZykws" />
   <link rel="canonical" href="https://mankuy.github.io/vincularmente-site/">
   <meta property="og:title" content="Vincularmente — Psicología, vínculos y realidad">
-  <meta property="og:description" content="Psicólogo. Sesiones online. Artículos sobre salud mental, vínculos y autocomprensión. Sin jerga, sin vueltas.">
+  <meta property="og:description" content="Psicólogo. Sesiones online. Artículos sobre salud mental, vínculos y autocomprensión. Suscribite al newsletter — un artículo nuevo cada día.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mankuy.github.io/vincularmente-site/">
   <meta property="og:image" content="https://mankuy.github.io/vincularmente-site/assets/og-image.png">
@@ -31,6 +31,20 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EmailNewsletter",
+    "name": "Vincularmente Newsletter",
+    "description": "Un artículo nuevo cada día. Psicología de a pie — sin jerga, sin vueltas, las cosas como son.",
+    "publisher": {
+      "@type": "Person",
+      "name": "vincularmente",
+      "url": "https://x.com/vincularmente"
+    },
+    "url": "https://mankuy.github.io/vincularmente-site/#newsletter"
+  }
+  </script>
 </head>
 <body>
 
@@ -40,6 +54,7 @@
   <a href="index.html" class="logo">vincular<span>mente</span></a>
   <nav>
     <a href="#articulos">Artículos</a>
+    <a href="#newsletter">Newsletter</a>
     <a href="#ebooks">Ebooks</a>
   </nav>
 </header>
@@ -53,6 +68,10 @@
     <p>La vida es un bosque. El miedo es un muro. Y el muro no te protege — te encierra. Del otro lado hay un claro. Solo tenés que animarte a atravesarlo.</p>
     <div class="author">— vincularmente</div>
   </div>
+</section>
+
+<section class="newsletter-banner">
+  <p>📖 Un artículo nuevo cada día. <a href="#newsletter">Suscribite gratis.</a></p>
 </section>
 
 <section class="section" id="articulos">
@@ -112,6 +131,18 @@
 
     <!-- Nuevos artículos se agregan arriba de esta línea -->
 
+  </div>
+</section>
+
+<section class="newsletter-section" id="newsletter">
+  <div class="newsletter-inner">
+    <h2>Psicología en tu bandeja</h2>
+    <p class="newsletter-desc">Un artículo nuevo cada día. Sin vueltas, sin jerga — las cosas como son. Para quien se anima a mirar adentro.</p>
+    <form class="newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/vincularmente" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/vincularmente', 'popupwindow')">
+      <input type="email" name="email" placeholder="tu@email.com" required>
+      <button type="submit">Quiero recibir artículos</button>
+    </form>
+    <p class="newsletter-note">Sin spam. Solo psicología de a pie. Podés dejar de recibir cuando quieras.</p>
   </div>
 </section>
 
