@@ -284,14 +284,6 @@ Estoy acá.
 
 ---
 
-## ¿Querés seguir trabajando en esto?
-
-Comprá mi primer ebook: "No estás Rot@"
-
-https://go.hotmart.com/Q105244008P
-
-¿Querés una sesión? Escribime al 598 991 48 716
-
 ---
 
 vincularmente
