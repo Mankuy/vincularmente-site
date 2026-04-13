@@ -382,7 +382,7 @@ def process_article(md_path, dry_run=False):
         '<p>*Si algo de esto te resonó, escribí un ebook sobre esto. Se llama "No estás Rot@" y está en Hotmart por $4.99. No es autoayuda. Es psicología de a pie. Sin jerga, sin vueltas, las cosas como son.*</p>', ''
     )
     html_content = html_content.replace(
-        '<p>*¿Querés charlar sobre esto? Escribime por WhatsApp: 59899148716*</p>', ''
+        '<p>*¿Querés charlar sobre esto? Escribime por el formulario en vincularmente.site/contacto*</p>', ''
     )
     html_content = html_content.replace(
         '<p>*Seguime en @vincularmente para más contenido así.*</p>', ''

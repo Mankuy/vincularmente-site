@@ -12,7 +12,7 @@ MD_PATH = os.path.join(os.path.dirname(__file__), 'amas-como-amas.md')
 OUT_PATH = os.path.join(os.path.dirname(__file__), 'amas-como-amas.pdf')
 
 class EbookPDF(FPDF):
-    ACCENT = (147, 51, 234)
+    ACCENT = (212, 113, 79)  # terracota - matching site
 
     def header(self):
         if self.page_no() == 1:
@@ -274,7 +274,7 @@ pdf.body('go.hotmart.com/Q105244008P ($4.99)')
 pdf.ln(2)
 pdf.bold_body('¿Querés una sesión?', size=11)
 pdf.body('Escribime. Trabajamos tu caso específico.')
-pdf.body('WhatsApp: 598 991 48 716')
+pdf.body('Formulario en vincularmente.site/contacto')
 pdf.ln(2)
 pdf.bold_body('Estoy acá.', size=11)
 

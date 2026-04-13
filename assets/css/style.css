@@ -107,6 +107,8 @@ header {
 
 .logo span { color: var(--accent); }
 
+.logo svg { color: var(--accent); vertical-align: middle; }
+
 nav a {
   color: var(--text-dim);
   margin-left: 1.8rem;

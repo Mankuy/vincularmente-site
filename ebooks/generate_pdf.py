@@ -9,7 +9,7 @@ FONT_BOLD = '/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf'
 FONT_ITAL = '/usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf'
 
 class EbookPDF(FPDF):
-    ACCENT = (147, 51, 234)  # purple
+    ACCENT = (212, 113, 79)  # terracota - matching site
     ACCENT2 = (233, 69, 96)  # pink/red
     
     def header(self):
@@ -343,7 +343,7 @@ pdf.body_text('go.hotmart.com/Q105244008P ($4.99)')
 pdf.ln(2)
 pdf.bold_text('¿Querés una sesión?', size=11)
 pdf.body_text('Escribime. Trabajamos tu caso específico.')
-pdf.body_text('WhatsApp: 598 991 48 716')
+pdf.body_text('Formulario en vincularmente.site/contacto')
 pdf.ln(2)
 pdf.bold_text('Estoy acá.', size=11)
 
