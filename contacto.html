@@ -2,11 +2,270 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=index.html">
-  <link rel="canonical" href="https://mankuy.github.io/vincularmente-site/">
-  <title>vincularmente</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — vincularmente</title>
+  <meta name="description" content="Escribime. Si leiste algo que te impactó, si tenés una duda, o si querés explorar trabajar en vos — este es el canal.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mankuy.github.io/vincularmente-site/contacto.html">
+  <meta property="og:title" content="Contacto — vincularmente">
+  <meta property="og:description" content="Escribime. Si leiste algo que te impactó, si tenés una duda, o si querés explorar trabajar en vos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mankuy.github.io/vincularmente-site/contacto.html">
+  <style>
+    :root {
+      --accent: rgb(212,113,79);
+      --accent-dim: rgba(212,113,79,0.15);
+      --bg: #0f0f12;
+      --surface: #16161a;
+      --surface2: #1e1e23;
+      --border: #2a2a30;
+      --text: #e0e0e0;
+      --muted: #888;
+      --success: #4ade80;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 1rem; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+    .logo span { color: var(--accent); }
+    nav a { color: var(--muted); font-size: 0.85rem; margin-left: 1.2rem; }
+    nav a:hover { color: var(--text); text-decoration: none; }
+
+    main {
+      flex: 1;
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+      width: 100%;
+    }
+
+    .page-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .page-subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .note {
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.2rem;
+      margin-bottom: 2rem;
+      border-radius: 0 8px 8px 0;
+      color: #ccc;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    form { display: flex; flex-direction: column; gap: 1.1rem; }
+
+    label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    label .req { color: var(--accent); }
+
+    input, textarea, select {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: inherit;
+      padding: 0.7rem 0.9rem;
+      transition: border-color 0.2s;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    textarea { resize: vertical; min-height: 110px; }
+    select option { background: var(--surface2); color: var(--text); }
+
+    .btn-submit {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.85rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      font-family: inherit;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { opacity: 0.85; }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .privacy {
+      color: #555;
+      font-size: 0.78rem;
+      text-align: center;
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+
+    .success-message {
+      display: none;
+      background: #0f1f0f;
+      border: 1px solid var(--success);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      color: var(--success);
+    }
+    .success-message h2 { margin-bottom: 0.5rem; font-size: 1.3rem; }
+    .success-message p { color: #aaa; font-size: 0.9rem; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+
+    @media (max-width: 500px) {
+      .page-title { font-size: 1.5rem; }
+      main { padding: 1.5rem 1rem 2rem; }
+    }
+  </style>
 </head>
 <body>
-  <p>Redirigiendo a <a href="index.html">vincularmente</a>...</p>
+
+<header>
+  <a href="index.html" class="logo">vincular<span>mente</span></a>
+  <nav>
+    <a href="index.html">Artículos</a>
+    <a href="index.html#ebooks">Ebooks</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
+
+<main>
+  <h1 class="page-title">Escribime.</h1>
+  <p class="page-subtitle">Si leíste algo que te impactó, si tenés una duda, o si querés explorar trabajar en vos — este es el canal.</p>
+
+  <div class="note">
+    Atiendo por videollamada. La primera sesión es para conocernos y ver si lo que te pasa tiene que ver con lo que trabajo: vínculos, autoestima, patrones que se repiten. No es obligación agendar después.
+  </div>
+
+  <!-- Formulario — Formspree endpoint: xlgokabq -->
+  <form id="contactForm" action="https://formspree.io/f/xlgokabq" method="POST">
+
+    <div>
+      <label for="nombre">Nombre <span class="req">*</span></label>
+      <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+    </div>
+
+    <div>
+      <label for="email">Email <span class="req">*</span></label>
+      <input type="email" id="email" name="email" required placeholder="tu@email.com">
+    </div>
+
+    <div>
+      <label for="como_conociste">¿Cómo llegaste hasta acá? <span class="req">*</span></label>
+      <select id="como_conociste" name="como_conociste" required>
+        <option value="" disabled selected>Elegí una opción</option>
+        <option value="google">Búsqueda en Google</option>
+        <option value="x">Twitter/X</option>
+        <option value="tiktok">TikTok / Reels</option>
+        <option value="ebook">Compré un ebook</option>
+        <option value="recomendacion">Me lo recomendó alguien</option>
+        <option value="otro">Otro</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="motivo">¿Qué te pasa? <span class="req">*</span></label>
+      <textarea id="motivo" name="motivo" required placeholder="Contame en tus palabras qué te trae acá. No tiene que ser perfecto, tiene que ser honesto."></textarea>
+    </div>
+
+    <div>
+      <label for="disponibilidad">¿Cuándo podrías atenderte? <span class="req">*</span></label>
+      <select id="disponibilidad" name="disponibilidad" required>
+        <option value="" disabled selected>Elegí una opción</option>
+        <option value="lo-antes-posible">Lo antes posible</option>
+        <option value="esta-semana">Esta semana</option>
+        <option value="este-mes">Este mes</option>
+        <option value="solo-consultando">Solo estoy consultando</option>
+      </select>
+    </div>
+
+    <input type="hidden" name="_subject" value="Nueva consulta desde vincularmente.site">
+    <input type="hidden" name="_language" value="es">
+
+    <button type="submit" class="btn-submit" id="submitBtn">Enviar mensaje</button>
+  </form>
+
+  <div class="success-message" id="successMessage">
+    <h2>Consulta enviada</h2>
+    <p>Te respondo en menos de 24 horas. Revisá tu email por si te llegó algo.</p>
+  </div>
+
+  <p class="privacy">Tus datos son privados. No los comparto con nadie. Solo los uso para responder tu consulta.</p>
+</main>
+
+<footer>
+  <span>vincularmente · <a href="https://x.com/vincularmente_" target="_blank">@vincularmente_</a></span>
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+      } else {
+        alert('Hubo un error. Probá de nuevo o escribime por @vincularmente_ en X.');
+        btn.textContent = 'Enviar mensaje';
+        btn.disabled = false;
+      }
+    } catch (error) {
+      alert('Error de conexión. Probá de nuevo.');
+      btn.textContent = 'Enviar mensaje';
+      btn.disabled = false;
+    }
+  });
+</script>
+
 </body>
 </html>
