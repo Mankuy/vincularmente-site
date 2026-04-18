@@ -137,23 +137,54 @@ def format_inline(text):
     return text
 
 
-def extract_title(md_text):
-    """Extrae el título H1 del markdown."""
+def parse_frontmatter(md_text):
+    """Parse YAML frontmatter from markdown. Returns (meta_dict, body_text)."""
+    meta = {}
+    body = md_text
+
+    # Check if file starts with frontmatter delimiter
+    match = re.match(r'^---\s*\n(.*?)\n---\s*\n?', md_text, re.DOTALL)
+    if match:
+        frontmatter_raw = match.group(1)
+        body = md_text[match.end():]
+
+        # Parse simple YAML key: value pairs (handles quoted values)
+        for line in frontmatter_raw.split('\n'):
+            line = line.strip()
+            if ':' in line:
+                key, _, value = line.partition(':')
+                key = key.strip()
+                value = value.strip().strip('"').strip("'")
+                meta[key] = value
+
+    return meta, body
+
+
+def extract_title(md_text, meta=None):
+    """Extrae el título: primero del frontmatter, luego H1, fallback 'Sin título'."""
+    if meta and meta.get('title'):
+        return meta['title']
     m = re.search(r'^# (.+)$', md_text, re.MULTILINE)
     return m.group(1) if m else "Sin título"
 
 
-def extract_description(md_text):
-    """Extrae una descripción del primer párrafo."""
+def extract_description(md_text, meta=None):
+    """Extrae descripción: primero del frontmatter, luego del primer párrafo."""
+    if meta and meta.get('description'):
+        desc = meta['description']
+        if len(desc) > 155:
+            desc = desc[:152] + "..."
+        return desc
+
+    # Fallback: extract from first substantial paragraph
     lines = md_text.split('\n')
     for line in lines:
         stripped = line.strip()
         if stripped and not stripped.startswith('#') and not stripped.startswith('---') and len(stripped) > 50:
-            # Clean up markdown formatting
             stripped = re.sub(r'\*\*(.+?)\*\*', r'\1', stripped)
             stripped = re.sub(r'\*(.+?)\*', r'\1', stripped)
-            if len(stripped) > 150:
-                stripped = stripped[:147] + "..."
+            if len(stripped) > 155:
+                stripped = stripped[:152] + "..."
             return stripped
     return ""
 
@@ -358,24 +389,35 @@ def process_article(md_path, dry_run=False):
     # Read markdown
     md_text = md_path.read_text(encoding='utf-8')
 
-    # Extract info
-    title = extract_title(md_text)
-    description = extract_description(md_text)
-    slug = slugify(md_path.stem)
+    # Parse frontmatter
+    meta, body = parse_frontmatter(md_text)
+
+    # Extract info (prefer frontmatter, fallback to body)
+    title = extract_title(body, meta)
+    description = extract_description(body, meta)
+    category = meta.get('category', 'relaciones')
+    date = meta.get('date', datetime.now().strftime("%Y-%m-%d"))
+
+    # Use slug from frontmatter if available, otherwise slugify filename
+    slug = meta.get('slug', slugify(md_path.stem))
+    # Append date to slug for uniqueness
+    if not slug.endswith(date):
+        slug = f"{slug}-{date}"
 
     log(f"  Título: {title}")
     log(f"  Slug: {slug}")
-    log(f"  Palabras: {len(md_text.split())}")
+    log(f"  Categoría: {category}")
+    log(f"  Palabras: {len(body.split())}")
 
     if dry_run:
         log(f"  [DRY RUN] No se publicaría: /posts/{slug}.html")
         return True
 
-    # Remove H1 from content (template already renders it)
-    md_text = re.sub(r'^# .+\n+', '', md_text, count=1, flags=re.MULTILINE)
+    # Remove H1 from body (template already renders it)
+    body = re.sub(r'^# .+\n+', '', body, count=1, flags=re.MULTILINE)
 
-    # Convert to HTML
-    html_content = md_to_html(md_text)
+    # Convert body to HTML (not full md_text with frontmatter)
+    html_content = md_to_html(body)
 
     # Remove CTA markdown lines (they're replaced by the template)
     html_content = html_content.replace(
@@ -389,7 +431,7 @@ def process_article(md_path, dry_run=False):
     )
 
     # Generate full HTML page
-    full_html = generate_article_html(title, html_content, description, slug)
+    full_html = generate_article_html(title, html_content, description, slug, date=date)
 
     # Write to posts/
     POSTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -398,7 +440,7 @@ def process_article(md_path, dry_run=False):
     log(f"  ✅ HTML generado: {output_path}")
 
     # Update index
-    update_index(title, slug, description)
+    update_index(title, slug, description, category=category)
 
     # Update sitemap
     update_sitemap(slug)
