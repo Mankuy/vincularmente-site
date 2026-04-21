@@ -15,6 +15,7 @@ import re
 import glob
 import subprocess
 import hashlib
+import json
 from datetime import datetime
 from pathlib import Path
 
@@ -27,6 +28,10 @@ DRAFTS_DIR = Path("/home/facajgs/seomachine/drafts")
 POSTS_DIR = SITE_DIR / "posts"
 STATE_FILE = SITE_DIR / ".published_state"
 LOG_FILE = Path("/home/facajgs/logs/autopublish-maestro.log")
+
+# Buttondown newsletter
+BUTTONDOWN_API_KEY = "9f6769a8-2536-4d00-a69b-809f8e124c97"
+BUTTONDOWN_BASE = "https://api.buttondown.com/v1"
 
 # ═══════════════════════════════════════════════════════════════
 # FUNCIONES
@@ -381,6 +386,50 @@ def git_push():
         return False
 
 
+def send_newsletter(title, html_content, slug):
+    """Envía el artículo como newsletter via Buttondown API."""
+    try:
+        import urllib.request
+        import urllib.error
+
+        url = f"{BUTTONDOWN_BASE}/emails"
+        headers = {
+            "Authorization": f"Token {BUTTONDOWN_API_KEY}",
+            "Content-Type": "application/json",
+            "X-Buttondown-Live-Dangerously": "true"
+        }
+
+        # Build email body with article content
+        email_body = (
+            f'<div style="max-width: 600px; margin: 0 auto; '
+            f'font-family: Georgia, serif; color: #333; line-height: 1.6;">\n'
+            f'{html_content}\n</div>'
+        )
+
+        payload = json.dumps({
+            "subject": title,
+            "body": email_body,
+            "status": "about_to_send"
+        }).encode("utf-8")
+
+        req = urllib.request.Request(url, data=payload, headers=headers, method="POST")
+        with urllib.request.urlopen(req) as response:
+            data = json.loads(response.read().decode("utf-8"))
+            email_id = data.get("id", "N/A")
+            archive_url = data.get("absolute_url", "N/A")
+            log(f"  📧 Newsletter enviado: {email_id}")
+            log(f"  🔗 Archive: {archive_url}")
+            return True
+
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode("utf-8", errors="replace")
+        log(f"  ❌ Error Buttondown ({e.code}): {error_body[:200]}")
+        return False
+    except Exception as e:
+        log(f"  ❌ Error enviando newsletter: {e}")
+        return False
+
+
 def process_article(md_path, dry_run=False):
     """Procesa un artículo .md y lo publica."""
     md_path = Path(md_path)
@@ -444,6 +493,10 @@ def process_article(md_path, dry_run=False):
 
     # Update sitemap
     update_sitemap(slug)
+
+    # Send newsletter (only for new articles, not forced re-publishes)
+    if not dry_run:
+        send_newsletter(title, html_content, slug)
 
     return True
 
