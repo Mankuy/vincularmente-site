@@ -13,7 +13,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vincularmente — Psicología, vínculos y realidad</title>
-  <meta name="description" content="Psicólogo. Sesiones online. Artículos sobre salud mental, vínculos y autocomprensión. Suscribite al newsletter — un artículo nuevo cada día.">
+  <meta name="description" content="Psicólogo. Sesiones online y artículos sobre salud mental, vínculos y autocomprensión. Suscribite al newsletter gratuito y recibí un artículo nuevo cada día.">
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="Y-ZjR9qzAUJspJb04X8YyIHZXUIZAyx0hBnXxqZykws" />
   <link rel="canonical" href="https://mankuy.github.io/vincularmente-site/">
@@ -54,6 +54,72 @@
     "url": "https://mankuy.github.io/vincularmente-site/#newsletter"
   }
   </script>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué tipo de terapia ofrece Vincularmente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vincularmente ofrece psicología de a pie, sin jerga, enfocada en salud mental, relaciones y autocomprensión a través de artículos, newsletter y ebooks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo puedo suscribirme al newsletter de Vincularmente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ingresá tu email en el formulario de la sección Newsletter del sitio y recibirás un artículo nuevo cada día directamente en tu bandeja."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Los ebooks de Vincularmente tienen garantía de satisfacción?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Si no quedas conforme con el ebook, podés solicitar el reembolso dentro de los 30 días posteriores a la compra."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Vincularmente",
+  "url": "https://mankuy.github.io/vincularmente-site/",
+  "logo": "https://mankuy.github.io/vincularmente-site/assets/og-image.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+598 0000-0000",
+    "contactType": "Customer Service",
+    "areaServed": "UY"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Vincularmente",
+  "url": "https://mankuy.github.io/vincularmente-site/",
+  "description": "Psicólogo. Sesiones online y artículos sobre salud mental, vínculos y autocomprensión. Suscribite al newsletter gratuito y recibí un artículo nuevo cada día.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://mankuy.github.io/vincularmente-site/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+  </script>
+
+  <link rel="alternate" type="application/rss+xml" title="Vincularmente RSS" href="https://mankuy.github.io/vincularmente-site/rss.xml" />
+
+  <link rel="well-known" href="/.well-known/ai.txt" />
 </head>
 <body>
 
@@ -68,7 +134,7 @@
   </div>
 </div>
 
-<button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">☀</button>
+<button class=\"theme-toggle\" title=\"Cambiar tema\" aria-label=\"Cambiar tema entre claro y oscuro\">☀</button>
 
 <header>
   <a href="https://x.com/vincularmente_" class="logo" aria-label="Vincularmente en X" target="_blank" rel="noopener">
@@ -83,6 +149,12 @@
     <a href="contacto.html">Contacto</a>
   </nav>
 </header>
+<section class="stats">
+  <h2>Datos que importan</h2>
+  <p>Según la OMS, <strong>1 de cada 8 personas</strong> en el mundo vive con un trastorno de salud mental. En Uruguay, la ansiedad y la depresión son los motivos más frecuentes de consulta.</p>
+  <p>En Vinculamente, <strong>+1500 lectores</strong> ya reciben nuestro newsletter diario de psicología de a pie.</p>
+</section>
+
 
 <section class="hero">
   <div class="hero-text">
@@ -246,7 +318,8 @@
     <h2>Psicología en tu bandeja</h2>
     <p class="newsletter-desc">Un artículo nuevo cada día. Sin vueltas, sin jerga — las cosas como son. Para quien se anima a mirar adentro.</p>
     <form class="newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/vincularmente" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/vincularmente', 'popupwindow')">
-      <input type="email" name="email" placeholder="tu@email.com" required>
+      <label for=\"newsletter-email\">Tu email</label>
+      <input type=\"email\" id=\"newsletter-email\" name=\"email\" placeholder=\"tu@email.com\" required>
       <button type="submit">Quiero recibir artículos</button>
     </form>
     <p class="newsletter-note">Sin spam. Solo psicología de a pie. Podés dejar de recibir cuando quieras.</p>
