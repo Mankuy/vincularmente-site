@@ -352,6 +352,24 @@ def update_index(title, slug, description, category="relaciones"):
     marker = '<!-- Nuevos artículos se agregan arriba de esta línea -->'
     if marker in index:
         index = index.replace(marker, card_html + '\n\n    ' + marker)
+
+        # Truncate to max 9 articles (keep newest = first in DOM)
+        grid_match = re.search(r'(<div class="posts-grid">)(.*?)(\s*' + re.escape(marker) + ')', index, re.DOTALL)
+        if grid_match:
+            grid_open = grid_match.group(1)
+            grid_content = grid_match.group(2)
+            marker_full = grid_match.group(3)
+            # Find all post-card blocks
+            card_blocks = re.findall(r'(<div class="post-card".*?</div>)', grid_content, re.DOTALL)
+            if len(card_blocks) > 9:
+                # Keep only first 9 (newest)
+                kept_blocks = card_blocks[:9]
+                # Rebuild grid content with kept blocks separated by blank lines
+                new_grid_content = '\n\n    '.join(kept_blocks)
+                new_grid = grid_open + '\n    ' + new_grid_content + marker_full
+                index = index[:grid_match.start()] + new_grid + index[grid_match.end():]
+                log(f"  🗑️ Eliminados {len(card_blocks) - 9} artículo(s) antiguo(s), manteniendo 9")
+
         index_path.write_text(index)
         log(f"  ✅ Artículo agregado al index.html (categoría: {tag_label})")
     else:

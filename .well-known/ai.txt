@@ -1,0 +1,3 @@
+# Vincularmente AI crawler permissions
+Allow: /
+# Disallow none
