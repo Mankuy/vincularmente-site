@@ -132,4 +132,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://mankuy.github.io/vincularmente-site/posts/costo-de-no-ser-yo-mismo-2026-05-07.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mankuy.github.io/vincularmente-site/posts/el-muro-que-construis-vos-2026-05-07.html</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
